@@ -1,0 +1,17 @@
+# Create file in /etc/udev/rules.d/ directory, for example '10-usb.rules' with following content:
+KERNELS=="1-7:1.0", SUBSYSTEM=="tty", SYMLINK+="usb7" 
+KERNELS=="1-8:1.0", SUBSYSTEM=="tty", SYMLINK+="usb8"
+# SYMLINK is the name you want to attach to your device
+
+# 1-7:1.0 Is the physical port, to get physical port of connected device, run the following command:
+udevadm info --name=/dev/ttyUSB0 --attribute-walk
+
+# At the begining you will see something like this:
+  looking at device '/devices/pci0000:00/0000:00:14.0/usb1/1-7/1-7:1.0/ttyUSB0/tty/ttyUSB0':
+    KERNEL=="ttyUSB0"
+    SUBSYSTEM=="tty"
+    DRIVER==""
+
+
+# Restart udev: sudo systemctl restart udev
+# Now you should see /dev/usb7 or /dev/usb8 ports
