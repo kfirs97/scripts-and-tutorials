@@ -1,0 +1,41 @@
+1.  download auto-py-to-exe from https://github.com/brentvollebregt/auto-py-to-exe
+2.  open a terminal and go inside the auto-py-to-exe directory
+3.  run the program with the following command: pyhton3 run.py
+
+now the program is up and we need to config it right to get our project executable file,
+the program needs the following parameters:
+1.  Script Location: the path to the main.py file (or any other name of the main .py file)
+2.  Onefile: one file is a flag, we want to choose the one file flag to get only one executable file and not a directory with dependencies
+3.  Console Window: choose the Window based flag
+
+now there are differenct optional sections, but in most cases some of them are optional and other required:
+
+Icon section (optional): 
+we can choose our own icon to the program by loading a .ico file 
+
+Additional Files section: 
+important! if our program is importing/using files (for example images, configuration files), we have to attach the folder/s that contains
+those file to the py-installer to get our program built with them or our exe program wont be able to find them on running. 
+at Additional Files section we have 3 options: Add Files, Add Folder, Add Blank, we can of course add as much we need
+
+Adnaced section:
+in this section we have many optional flags, but there are 2 that we'll focus at
+the first one is --name, fill it with the name we want to give to our exe file (needs to be "name.exe")
+the second one(and a very important one!) is --paths,
+if we want our program to be independent, we need to attach the paths to the libraries we imported and installed using pip,
+
+    if youre using Pycharm, the IDE creates inside your project directory a "venv" directory which contains the installations of the libraries we used
+    you can find them inside the project directory at venv-->Lib-->site-packages (this is also the path we will add to --paths flag)
+
+    if you dont have a virtual environment, the libraries installation dirs probably located on your host
+    to find the location of an imported library, we can use the following code in python:
+    in this example we'll find the location of opencv, but it works to all libraries
+
+        import cv2
+        print(cv2.__file__)
+
+    executing this program will print the path where the opencv library installed in our computer, then we want to gives --paths the path to the folder
+    that contains all of the libraries located somewhere at the way to the specific lib path
+
+Settings section:
+in settings section we can choose the output directory of our executable, add arguments manualy and import/export json configuration file
