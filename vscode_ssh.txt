@@ -1,0 +1,10 @@
+connect to remote host by ssh in vscode
+1.  make sure your ssh host is set and ready for log in
+2.  go to vs code and download "Remote-ssh" extenstion
+3.  in vs code, press crtl + shift + p
+4.  choose "Remote-SSH: Connect to Host..."
+5.  choose "Add New SSH Host..."
+6.  enter your host user name and ip host@ip
+7.  choose where you want to save the created configuration file
+8.  now, when you go to "Remote-SSH: Connect to Host..." you'll see your new host configuration
+9.  after log in, enter your host password and you're in :)
