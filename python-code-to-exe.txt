@@ -39,3 +39,8 @@ if we want our program to be independent, we need to attach the paths to the lib
 
 Settings section:
 in settings section we can choose the output directory of our executable, add arguments manualy and import/export json configuration file
+
+Note:
+if the program using Pilllow library and tkinter, the program could throw an error after the build says there's no module named PIL_tkinter_finder.
+this can be solved by adding a manual argument input (in settings section) with the following flag:
+--hidden-import='PIL._tkinter_finder'
